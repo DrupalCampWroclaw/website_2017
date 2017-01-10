@@ -1,0 +1,185 @@
+<?php
+/**
+ * @file
+ * Code for the Layout feature.
+ */
+
+include_once 'layout.features.inc';
+
+
+/**
+ * Implements hook_init().
+ */
+function layout_init() {
+  $nodes_redirect = array('bannerslider');
+  if (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == '' ) {
+    $node = node_load(arg(1));
+    if (in_array($node->type, $nodes_redirect) && !user_access('administer application')) {
+      drupal_goto('<front>', array(), 301);
+    }
+  }
+}
+
+/**
+ * Implements hook_block_info()).
+ */
+function layout_block_info() {
+  $blocks['social_facebook_gplus_twitter'] = array(
+    'info' => t('social_facebook_gplus_twitter'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['flickr_gallery'] = array(
+    'info' => t('flickr_gallery'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  $blocks['sessions'] = array(
+    'info' => t('Sessions'),
+  );
+  $blocks['frontpage_top'] = array(
+    'info' => t('Frontpage Top'), // For youtube streaming.
+  );
+
+  $blocks['main_menu'] = array(
+    'info' => t('main_menu'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function layout_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'social_facebook_gplus_twitter':
+      $block['subject'] = t('Social media profiles');
+      $block['content'] = theme('social_media');
+      break;
+    case 'flickr_gallery':
+      $block['subject'] = t('Flickr gallery');
+      $block['content'] = theme('flickr');
+      break;
+    case 'sessions':
+
+      $timestamp_now = REQUEST_TIME;
+      $timestamp_voting_end = strtotime(variable_get('session_voting_end_date', '2015-05-15'));
+
+      if ($timestamp_now > $timestamp_voting_end) {
+        $is_session_voting_active = FALSE;
+      }
+      else {
+        $is_session_voting_active = TRUE;
+      }
+
+      $timestamp_submit_end = strtotime(variable_get('session_submit_end_date', '2015-04-30'));
+      if ($timestamp_now > $timestamp_submit_end) {
+        $is_session_submit_active = FALSE;
+      }
+      else {
+        $is_session_submit_active = TRUE;
+      }
+
+      $session_video_link_show_date = strtotime(variable_get('session_video_link_show_date', '2015-05-25'));
+      if ($timestamp_now > $session_video_link_show_date) {
+        $is_video_link_active = TRUE;
+      }
+      else {
+        $is_video_link_active = FALSE;
+      }
+
+      $block['subject'] = t('Sessions');
+      $block['content'] = theme('sessions', array(
+        'is_session_voting_active' => $is_session_voting_active,
+        'is_session_submit_active' => $is_session_submit_active,
+        'is_video_link_active' => $is_video_link_active,
+        )
+      );
+      break;
+    case 'frontpage_top':
+      $block['subject'] = '';
+      $block['content'] = variable_get_lang('appset_frontpage_top', '');
+      break;
+    case 'main_menu':
+      $block['subject'] = '';
+      $block['content'] = layout_block_main_menu();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function layout_theme($existing, $type, $theme, $path) {
+  return array(
+    'social_media' => array(
+      'variables' => array(),
+      'template' => 'social-media',
+    ),
+    'flickr' => array(
+      'variables' => array(),
+      'template' => 'flickr',
+    ),
+    'sessions' => array(
+      'variables' => array(
+        'is_session_voting_active' => NULL,
+        'is_video_link_active' => NULL,
+      ),
+      'template' => 'sessions',
+    ),
+  );
+}
+
+/**
+ * Main menu block.
+ *
+ * @return string
+ */
+function layout_block_main_menu() {
+  global $language;
+
+  $output = '';
+
+  if ($language->language == 'en') {
+    $main_menu_tree = menu_tree('main-menu');
+  }
+
+  if ($language->language == 'pl') {
+    $main_menu_tree = menu_tree('pl-main-menu');
+  }
+
+  $output .= drupal_render($main_menu_tree);
+
+  return $output;
+}
+
+/**
+ * Language links in page header.
+ */
+function layout_language_links() {
+  global $language;
+
+
+  if ($language->language == 'en') {
+    $class_en = 'active-language';
+    $class_pl = '';
+  }
+  else {
+    $class_en = '';
+    $class_pl = 'active-language';
+  }
+
+  $output = '
+    <ul>
+      <li class="lang-en lang ' . $class_en . '"><a href="/en">EN</a></li>
+      <li class="separator"> / </li>
+      <li class="lang-pl lang ' . $class_pl . '"><a href="/">PL</a></li>
+    </ul>';
+
+
+
+  return $output;
+}

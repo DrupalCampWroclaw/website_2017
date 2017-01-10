@@ -1,0 +1,14 @@
+#block-flickr-flickr {
+  #flickr-gallery {
+    text-align: center;
+    vertical-align: top;
+    .img-flickr-gallery {
+      display: inline-block;
+      margin: 1em;
+      img {
+        max-height: 160px;
+      }
+    }
+  }
+
+}

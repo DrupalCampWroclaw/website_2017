@@ -1,0 +1,59 @@
+.sessions-accepted.sessions-accepted-day {
+  h2.day {
+    text-align: center;
+  }
+  .sessions-accepted-room{
+    display: inline-block;
+    vertical-align: top;
+
+
+    > .inner {
+      padding: 0 0.5em;
+      position: relative;
+    }
+
+    .room-name {
+      background: $blue1;
+      color: $color_white;
+      text-align: center;
+    }
+    
+    .sessions-list{
+      position: relative;
+
+    }
+
+    .sessions-accepted-session{
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      > .inner {
+        height: 100%;
+        background: $color_white;
+        border-top: 1px solid $color7;
+        margin: 0.2em;
+        padding: 0.5em;
+      }
+    }
+
+    .session-accepted-session-time{
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    .session-accepted-session-speakers{
+      a {
+        color: $color7;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+  .sessions-accepted-room.columns-6{
+    width: 50%;
+  }
+
+  .sessions-accepted-room.columns-4{
+    width: 33%;
+  }
+}

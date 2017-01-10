@@ -1,0 +1,27 @@
+.view-speakers,
+.view-people{
+  clear: both;
+  float: left;
+  width: 100%;
+  .view-content {
+    clear: both;
+    float: left;
+    width: 100%;
+    text-align: center;
+  }
+  .views-row{
+    font-size: 0.9em;
+    /*float: left;*/
+    margin: 1em;
+    width: 150px;
+    height: 250px;
+    overflow: hidden;
+    text-align: center;
+
+    display: inline-block;
+
+    p {
+      margin:0 ;
+    }
+  }
+}

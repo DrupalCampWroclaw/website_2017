@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+echo $DIR
+
+/bin/bash $DIR/../../scripts/git-hooks/pre-commit-check-code
+/usr/bin/env ruby $DIR/../../scripts/git-hooks/pre-commit-prevent-branch-commit
+

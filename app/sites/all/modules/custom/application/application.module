@@ -1,0 +1,81 @@
+<?php
+/**
+ * @file
+ * Code for the Application feature.
+ */
+
+include_once 'application.features.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function application_field_formatter_info() {
+  return array(
+    'custom_list_text' => array(
+      'label' => 'Translatable',
+      'field types' => array('list_text'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function application_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'custom_list_text':
+      $allowed_values = list_allowed_values($field);
+      foreach ($items as $delta => $item) {
+        if (isset($allowed_values[$item['value']])) {
+          $output = t(field_filter_xss($allowed_values[$item['value']]));
+        }
+        else {
+          // If no match was found in allowed values, fall back to the key.
+          $output = t(field_filter_xss($item['value']));
+        }
+        $element[$delta] = array('#markup' => $output);
+      }
+      break;
+  }
+
+  return $element;
+}
+
+
+/**
+ * Implements hook_help().
+ */
+function application_help($path, $arg) {
+  $output = '';
+  switch ($path) {
+    case 'admin/help#application':
+      $output .= '<p>' . t('Application module') . '</p>';
+  }
+  return $output;
+}
+
+/**
+ * List of all features.
+ */
+function application_features_list() {
+  $features = array(
+    'application',
+    'news',
+    'layout',
+    'page',
+    'partners_page',
+    'room',
+    'sponsor',
+    'text_formats',
+    'timeslot',
+    'userprofile',
+    'job',
+    'session',
+    'partners_page',
+    'mobileapi',
+  );
+  return $features;
+}
+
+

@@ -1,0 +1,107 @@
+<?php
+/**
+ * @file
+ * Code for the UserProfile feature.
+ */
+
+include_once 'userprofile.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function userprofile_menu() {
+  $items = array();
+  // Placeholder for application project page.
+  $items['admin/application/userprofile-settings'] = array(
+    'title' => 'User profile settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('userprofile_admin_form'),
+    'file' => 'userprofile.admin.inc',
+    'access arguments' => array('administer users'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function userprofile_form_alter(&$form, &$form_state, $form_id) {
+
+  switch ($form_id) {
+    case 'user_profile_form':
+    case 'user_register_form':
+      drupal_add_js(drupal_get_path('module', 'userprofile') . '/js/script.js');
+      $form['#validate'][] = 'userprofile_tshirt_size_validate';
+
+      if (REQUEST_TIME < strtotime(variable_get('userprofile_planned_attendance_show_date', '2015-04-30'))) {
+        $form['field_attendance']['#access'] = FALSE;
+      } else {
+        $form['field_attendance']['#access'] = TRUE;
+      }
+
+      break;
+  }
+
+}
+
+/**
+ * Social links in header of page.
+ *
+ * @return
+ *   HTML output.
+ */
+function userprofile_header_bar() {
+  $output = '';
+
+  $menu_links = array();
+
+  if (user_is_logged_in()) {
+    global $user;
+    $menu_links[] = array(
+      'href' => 'user/' . $user->uid,
+      'title' => t('My profile'),
+    );
+    $menu_links[] = array(
+      'href' => 'user/logout',
+      'title' => t('Logout'),
+    );
+    // Todo
+    // My sessions.
+  }
+  else {
+    $menu_links[] = array(
+      'href' => 'user/login',
+      'title' => t('Login'),
+    );
+    $menu_links[] = array(
+      'href' => 'user/register',
+      'title' => t('Register'),
+    );
+  }
+
+  $output .= theme('links', array(
+    'links' => $menu_links,
+    'attributes' => array('class' => array('user-links')),
+    ));
+
+  return $output;
+}
+
+/**
+ * Validate tshirt_size
+ *
+ */
+function userprofile_tshirt_size_validate($form, &$form_state) {
+
+  $bad_value = taxonomy_get_term_by_name('Men');
+  $bad_value2 = taxonomy_get_term_by_name('Women');
+  $size = $form_state['values']['field_user_tshirt_size']['en'][0]['tid'];
+
+  if ($size == key($bad_value) || $size == key($bad_value2)) {
+    form_set_error('field_user_tshirt_size', t('Please select a correct T-shirt size value.'));
+  }
+
+}
+

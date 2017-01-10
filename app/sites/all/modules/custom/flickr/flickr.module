@@ -1,0 +1,147 @@
+<?php
+
+/**
+ * @file
+ * Examples demonstrating use json in Drupal.
+ */
+
+/**
+ *Implement hook_init().
+ */
+
+function flickr_init() {
+
+  variable_set('flickr_info_en', 'Join to our group on Flickr and add your photos from conference!');
+  variable_set('flickr_info_pl', 'Dołącz do naszej grupy na Flickr i dodaj swoje zdjęcia z konferencji!');
+
+}
+
+/**
+ *Implement block_info().
+ */
+
+function flickr_block_info() {
+  $blocks = array();
+  $blocks['flickr'] = array(
+    'info' => t('flickr'),
+  );
+
+  return $blocks;
+
+}
+
+/**
+ * Implements hook_block_view().
+ */
+
+function flickr_block_view($delta) {
+  $block = array();
+  switch ($delta) {
+    case 'flickr':
+      $block['subject'] = t('Flickr Gallery');
+      $block['content'] = array(
+        '#markup' => '<div class="flickr-info">' . flickr_contents($delta) . '</div>' . flickr(),
+      );
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function flickr_block_configure($delta = '') {
+  $form = array();
+  switch ($delta) {
+    case 'flickr':
+      $form['flickr_info'] = array(
+        '#type' => 'textarea',
+        '#title' => t('Info text'),
+        '#size' => 60,
+        '#format' => 'full_html',
+        '#default_value' => variable_get(flickr_info_var_name()),
+      );
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function flickr_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'flickr':
+      variable_set(flickr_info_var_name(), $edit['flickr_info']);
+      break;
+  }
+}
+
+/**
+ * main function for load json code from flickr and parser this code and build gallery structure.
+ */
+
+function flickr() {
+  $json = json_flickr_load();
+  return flickr_gallery_build($json);
+}
+
+/**
+ * This function parse json code from flickr
+ */
+function json_flickr_load() {
+
+  $request = drupal_http_request('https://api.flickr.com/services/feeds/groups_pool.gne?id=2453588@N21&format=json');
+  // $json = json_decode(ereg_replace("^jsonFlickrFeed\((.*)\)$", "\\1", stripslashes(strip_tags($request->data))));
+  $json = $request->data;
+  $json = str_replace('jsonFlickrFeed(', '', $json);
+  $json = substr($json, 0, strlen($json) - 1);
+  $json = json_decode($json);
+
+  return $json;
+
+}
+
+/**
+ * This function build html structure for gallery
+ */
+function flickr_gallery_build($json) {
+
+  $output = '';
+
+  $i = 0;
+  $output .= '<div id ="flickr-gallery" class="clearfix flickr gallery">';
+  foreach ($json->items as $key => $item) {
+    $output .= '<div class="img-flickr-gallery" class = "image flickr-img gallery-img" >';
+    $output .= '<a href="https://www.flickr.com/groups/drupalcampwroclaw/pool/" target="_blank">';
+    $output .= '<img src="';
+    $output .= $item->media->m;
+    $output .= '" alt="';
+    $output .= $item->title;
+    $output .= '"></a>';
+    $output .= '</div>';
+    if ($i >= 7) {
+      break;
+    }
+    $i++;
+  }
+
+  $output .= '</div>';
+  return $output;
+
+}
+
+function flickr_contents($delta = '') {
+  switch ($delta) {
+    case 'flickr':
+      $flickr_info = variable_get(flickr_info_var_name());
+      break;
+  }
+  return $flickr_info;
+}
+
+function flickr_info_var_name() {
+  global $language;
+  $var_name = 'flickr_info_' . $language->language;
+  return $var_name;
+}

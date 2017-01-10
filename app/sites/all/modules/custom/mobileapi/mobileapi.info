@@ -1,0 +1,13 @@
+name = Mobile
+core = 7.x
+package = APP
+version = 7.x-1.0-beta2
+project = mobileapi
+dependencies[] = ctools
+dependencies[] = rest_server
+dependencies[] = services
+dependencies[] = services_views
+features[ctools][] = services:services:3
+features[features_api][] = api:2
+features[services_endpoint][] = mobile
+project status url = http://updates-drupal.drupalcampwroclaw.pl/release-history

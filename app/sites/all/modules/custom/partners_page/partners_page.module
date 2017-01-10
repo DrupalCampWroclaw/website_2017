@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Partners page feature.
+ */
+
+include_once 'partners_page.features.inc';

@@ -1,0 +1,68 @@
+//
+// Font faces, stacks and sizes.
+//
+
+$base-font-size:   14px; // The font size set on the root html element.
+$base-line-height: 22px; // This line-height determines the basic unit of vertical rhythm.
+
+$font-size-p: 16px;
+
+$padding_default: $base-font-size;
+
+$h1-font-size: 26px; //2    * $base-font-size;
+$h2-font-size: 22px; //1.5  * $base-font-size;
+$h3-font-size: 18px; //1.17 * $base-font-size;
+$h4-font-size: 1    * $base-font-size;
+$h5-font-size: 12px; //0.83 * $base-font-size;
+$h6-font-size: 10px; //0.67 * $base-font-size;
+
+$font-size-copyright: 11px;
+
+$font-size-header-bar: 14px;
+
+$h2-block-font-size: 20px;
+$p-block-font-size: 14px;
+$p2-block-font-size: 14px;
+
+$region-sidebar-block-title-font-size: 16px;
+$region-sidebar-block-date-font-size: 11px;
+
+$site-name-font-size: 30px;
+$site-slogan-font-size: 16px;
+
+$main-menu-font-size-base: 15px;
+$main-menu-link-height: 58px;
+
+$exposed-label-font-size: 19px;
+
+$front-banner-size: 24px;
+
+$font-header-mobile: 13px;
+
+//
+// Font
+//
+$times-new-roman: "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+$times:           Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+$georgia:         Georgia, "Times New Roman", "DejaVu Serif", serif;
+
+$verdana:         Verdana, Tahoma, "DejaVu Sans", sans-serif;
+$tahoma:          Tahoma, Verdana, "DejaVu Sans", sans-serif;
+$helvetica:       Helvetica, Arial, "Nimbus Sans L", sans-serif;
+$arial:           Arial, Helvetica, "Nimbus Sans L", sans-serif;
+$courier:         "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic&subset=latin,cyrillic,latin-ext,greek,greek-ext,cyrillic-ext);
+
+$bree:            'Bree Serif', serif;
+$ubuntu:          'Ubuntu', sans-serif;
+
+
+
+
+$base-font-family: $ubuntu; // The font family set on the html element.
+$font-body:        $ubuntu;
+$font-monospace:   $courier;
+
+

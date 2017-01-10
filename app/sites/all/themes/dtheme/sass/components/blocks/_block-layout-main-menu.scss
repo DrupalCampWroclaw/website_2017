@@ -1,0 +1,162 @@
+#block-layout-main-menu {
+
+
+  @media only screen and (max-width : $screen-mobile-max2 ) {
+    display: none;
+  }
+
+  ul.menu {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+    margin-left: -0.5em;
+    > li {
+      display: inline-block;
+      height: 42px;
+      line-height: 42px;
+      a {
+        color: $color_white;
+        padding: 0 1.5em;
+        font-family: $bree;
+        font-size: 14px;
+      }
+    }
+
+    > li:hover {
+      background: $red1;
+    }
+
+    > li.active-trail {
+      background: lighten($red1, 3%);
+    }
+
+    li.expanded {
+      ul {
+        display: none;
+      }
+    }
+
+    //li.expanded {
+    li.expanded:hover {
+      //position: relative;
+      ul {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        display: block;
+        background: $color9;
+        z-index: 10000;
+        width: 100%;
+        background: $red1;
+        border: 2px solid $red1;
+
+        li {
+          display: inline-block;
+          white-space: nowrap;
+          a {
+            display: block;
+          }
+        }
+        li:hover {
+          background: $color9;
+        }
+      }
+    }
+
+
+
+    @media only screen and (max-width : $screen-mobile-max2 ) {
+
+    }
+
+    @media only screen and (min-width : $screen-tablet-min )and (max-width : $screen-tablet-max ) {
+      margin-left: 0;
+        > li {
+
+          li {
+            a {
+              padding: 0 6px;
+            }
+          }
+          a {
+            padding: 0 10px;
+          }
+        }
+
+    }
+  }
+}
+
+#mobile-menu-links {
+  display: none;
+
+  @media only screen and (max-width : $screen-mobile-max2 ) {
+    display: none;
+
+
+    &.open {
+      display: block;
+    }
+    position: absolute;
+    top: 45px;
+    z-index: 100000;
+    background: $color13;
+    text-transform: uppercase;
+    width: 100%;
+    a {
+      color: $color_white;
+      text-decoration: none;
+      font-family: $bree;
+      font-size: 18px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        a {
+          padding: 1em;
+          display: block;
+        }
+        display: block;
+        ul {
+          display: none;
+          li {
+            a {
+              text-transform: none;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      li.open {
+        ul {
+          display: block;
+          background: $color12;
+        }
+      }
+
+      .menu-item-expand-link{
+        float: right;
+
+        z-index: 200000;
+        span {
+          display: block;
+          height: 54px;
+          width: 54px;
+          padding: 0;
+          text-align: center;
+          font-weight: bold;
+          line-height: 54px;
+          color: $color_white;
+          cursor: pointer;
+
+        }
+      }
+    }
+  }
+
+
+}

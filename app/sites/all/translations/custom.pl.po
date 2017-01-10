@@ -1,0 +1,743 @@
+# $Id$
+#
+# Polish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  application/application.module: n/a
+#  application/application.install: n/a
+#  job/job.views_default.inc: n/a
+#  application/application.info: n/a
+#  application_settings/application_settings.info: n/a
+#  conferencestats/conferencestats.info: n/a
+#  frontpage/frontpage.info: n/a
+#  job/job.info: n/a
+#  layout/layout.info: n/a
+#  news/news.info: n/a
+#  page/page.info: n/a
+#  partners_page/partners_page.info: n/a
+#  room/room.info: n/a
+#  session/session.info: n/a
+#  sociallinks/sociallinks.info: n/a
+#  sponsor/sponsor.info: n/a
+#  text_formats/text_formats.info: n/a
+#  timeslot/timeslot.info: n/a
+#  userprofile/userprofile.info: n/a
+#  application_settings/application_settings.pages.inc: n/a
+#  application_settings/application_settings.module: n/a
+#  conferencestats/conferencestats.module: n/a
+#  flickr/flickr.module: n/a
+#  flickr/flickr.info: n/a
+#  frontpage/frontpage.pages.inc: n/a
+#  frontpage/frontpage.module: n/a
+#  initcontent/initcontent.info: n/a
+#  job/job.features.field_instance.inc: n/a
+#  room/room.features.field_instance.inc: n/a
+#  session/session.features.field_instance.inc: n/a
+#  sponsor/sponsor.features.inc: n/a
+#  job/job.features.inc: n/a
+#  news/news.features.inc: n/a
+#  page/page.features.field_instance.inc: n/a
+#  page/page.features.inc: n/a
+#  partners_page/partners_page.features.field_instance.inc: n/a
+#  partners_page/partners_page.features.inc: n/a
+#  room/room.features.inc: n/a
+#  session/session.features.inc: n/a
+#  session/session.views_default.inc: n/a
+#  sponsor/sponsor.features.field_instance.inc: n/a
+#  timeslot/timeslot.features.field_instance.inc: n/a
+#  timeslot/timeslot.features.inc: n/a
+#  news/news.views_default.inc: n/a
+#  partners_page/partners_page.views_default.inc: n/a
+#  sponsor/sponsor.views_default.inc: n/a
+#  timeslot/timeslot.views_default.inc: n/a
+#  userprofile/userprofile.views_default.inc: n/a
+#  layout/sessions.tpl.php: n/a
+#  layout/layout.context.inc: n/a
+#  layout/layout.module: n/a
+#  news/news.features.field_instance.inc: n/a
+#  session/session.module: n/a
+#  sociallinks/sociallinks.module: n/a
+#  userprofile/userprofile.features.field_instance.inc: n/a
+#  userprofile/userprofile.module: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-02-23 22:21+0100\n"
+"PO-Revision-Date: 2015-02-23 22:21+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Polish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1)?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+
+#: application/application.module:16
+msgid "Application module"
+msgstr ""
+
+#: application/application.install:4
+msgid "Execute"
+msgstr ""
+
+#: application/application.install:5
+msgid "- Choose an operation -"
+msgstr ""
+
+#: application/application.install:6
+msgid "Choose an operation"
+msgstr ""
+
+#: application/application.install:7
+msgid "Delete item"
+msgstr ""
+
+#: application/application.install:8
+msgid "Modify entity values"
+msgstr ""
+
+#: application/application.install:127 job/job.views_default.inc:292
+msgid "Jobs"
+msgstr ""
+
+#: application/application.info:0
+msgid "Application"
+msgstr ""
+
+#: application/application.info:0 application_settings/application_settings.info:0 conferencestats/conferencestats.info:0 frontpage/frontpage.info:0 job/job.info:0 layout/layout.info:0 news/news.info:0 page/page.info:0 partners_page/partners_page.info:0 room/room.info:0 session/session.info:0 sociallinks/sociallinks.info:0 sponsor/sponsor.info:0 text_formats/text_formats.info:0 timeslot/timeslot.info:0 userprofile/userprofile.info:0
+msgid "APP"
+msgstr ""
+
+#: application_settings/application_settings.pages.inc:46
+msgid "No items"
+msgstr ""
+
+#: application_settings/application_settings.pages.inc:84
+msgid "Variable name short"
+msgstr ""
+
+#: application_settings/application_settings.pages.inc:84
+msgid "Variable name full"
+msgstr ""
+
+#: application_settings/application_settings.module:14
+msgid "Application Settings module"
+msgstr ""
+
+#: application_settings/application_settings.module:54
+msgid "frontpage- top text"
+msgstr ""
+
+#: application_settings/application_settings.module:25;34 application_settings/application_settings.info:0;0
+msgid "Application Settings"
+msgstr ""
+
+#: conferencestats/conferencestats.module:14
+msgid "Conference statistics"
+msgstr ""
+
+#: conferencestats/conferencestats.module:35
+msgid "Time left"
+msgstr "Do konferencji"
+
+#: conferencestats/conferencestats.module:35
+msgid "days"
+msgstr "dni"
+
+#: conferencestats/conferencestats.info:0
+msgid "ConcerenceStats"
+msgstr ""
+
+#: conferencestats/conferencestats.info:0
+msgid "Concerence Statistics"
+msgstr ""
+
+#: flickr/flickr.module:16
+msgid "flickr"
+msgstr ""
+
+#: flickr/flickr.module:31 flickr/flickr.info:0;0
+msgid "Flickr Gallery"
+msgstr "Galeria Flickr"
+
+#: frontpage/frontpage.pages.inc:36
+msgid "Log in"
+msgstr "Zaloguj"
+
+#: frontpage/frontpage.pages.inc:49
+msgid "Welcome!"
+msgstr ""
+
+#: frontpage/frontpage.module:14
+msgid "Frontpage module"
+msgstr ""
+
+#: frontpage/frontpage.info:0
+msgid "FrontPage"
+msgstr ""
+
+#: initcontent/initcontent.info:0
+msgid "Initcontent"
+msgstr ""
+
+#: job/job.features.field_instance.inc:101 room/room.features.field_instance.inc:104 session/session.features.field_instance.inc:394
+msgid "Description"
+msgstr "Opis"
+
+#: job/job.features.field_instance.inc:102 job/job.views_default.inc:301 sponsor/sponsor.features.inc:29;31 sponsor/sponsor.info:0;0
+msgid "Sponsor"
+msgstr ""
+
+#: job/job.features.inc:29 job/job.info:0;0
+msgid "Job"
+msgstr ""
+
+#: job/job.features.inc:31
+msgid "Job offer"
+msgstr ""
+
+#: job/job.features.inc:33 news/news.features.inc:65 page/page.features.field_instance.inc:191 page/page.features.inc:26 partners_page/partners_page.features.field_instance.inc:255 partners_page/partners_page.features.inc:66 room/room.features.field_instance.inc:105 room/room.features.inc:26 session/session.features.field_instance.inc:401 session/session.features.inc:77 session/session.views_default.inc:166 sponsor/sponsor.features.field_instance.inc:251 timeslot/timeslot.features.field_instance.inc:154 timeslot/timeslot.features.inc:33
+msgid "Title"
+msgstr "Tytuł"
+
+#: job/job.views_default.inc:291 news/news.views_default.inc:166;271 partners_page/partners_page.views_default.inc:138 session/session.views_default.inc:157;320;397;526 sponsor/sponsor.views_default.inc:98;349;882 timeslot/timeslot.views_default.inc:140;243 userprofile/userprofile.views_default.inc:232;449;624
+msgid "Master"
+msgstr ""
+
+#: job/job.views_default.inc:293 news/news.views_default.inc:181;273 partners_page/partners_page.views_default.inc:140 session/session.views_default.inc:159;321;399;528 sponsor/sponsor.views_default.inc:100;351;884 timeslot/timeslot.views_default.inc:142;244 userprofile/userprofile.views_default.inc:234;451;626
+msgid "more"
+msgstr "więcej"
+
+#: job/job.views_default.inc:294 news/news.views_default.inc:274 partners_page/partners_page.views_default.inc:141 session/session.views_default.inc:160;322;400;529 sponsor/sponsor.views_default.inc:101;352;885 timeslot/timeslot.views_default.inc:143;245 userprofile/userprofile.views_default.inc:235;452;627
+msgid "Apply"
+msgstr ""
+
+#: job/job.views_default.inc:295 news/news.views_default.inc:275 partners_page/partners_page.views_default.inc:142 session/session.views_default.inc:161;323;401;530 sponsor/sponsor.views_default.inc:102;353;886 timeslot/timeslot.views_default.inc:144;246 userprofile/userprofile.views_default.inc:236;453;628
+msgid "Reset"
+msgstr ""
+
+#: job/job.views_default.inc:296 news/news.views_default.inc:276 partners_page/partners_page.views_default.inc:143 session/session.views_default.inc:162;324;402;531 sponsor/sponsor.views_default.inc:103;354;887 timeslot/timeslot.views_default.inc:145;247 userprofile/userprofile.views_default.inc:237;454;629
+msgid "Sort by"
+msgstr ""
+
+#: job/job.views_default.inc:297 news/news.views_default.inc:277 partners_page/partners_page.views_default.inc:144 session/session.views_default.inc:163;325;403;532 sponsor/sponsor.views_default.inc:104;355;888 timeslot/timeslot.views_default.inc:146;248 userprofile/userprofile.views_default.inc:238;455;630
+msgid "Asc"
+msgstr ""
+
+#: job/job.views_default.inc:298 news/news.views_default.inc:278 partners_page/partners_page.views_default.inc:145 session/session.views_default.inc:164;326;404;533 sponsor/sponsor.views_default.inc:105;356;889 timeslot/timeslot.views_default.inc:147;249 userprofile/userprofile.views_default.inc:239;456;631
+msgid "Desc"
+msgstr ""
+
+#: job/job.views_default.inc:299
+msgid "Content entity referenced from field_job_sponsor_ref"
+msgstr ""
+
+#: job/job.views_default.inc:300
+msgid "Job Title"
+msgstr ""
+
+#: job/job.views_default.inc:302 sponsor/sponsor.features.field_instance.inc:249
+msgid "Sponsor Type"
+msgstr ""
+
+#: job/job.views_default.inc:303 news/news.views_default.inc:286 page/page.features.inc:22 page/page.info:0;0 session/session.views_default.inc:173;537 timeslot/timeslot.views_default.inc:153 userprofile/userprofile.views_default.inc:466;637
+msgid "Page"
+msgstr ""
+
+#: job/job.views_default.inc:304 partners_page/partners_page.views_default.inc:147
+msgid "Attachment"
+msgstr ""
+
+#: job/job.views_default.inc:305
+msgid "Attachment 2"
+msgstr ""
+
+#: job/job.views_default.inc:306 sponsor/sponsor.features.field_instance.inc:250
+msgid "Sponsor website"
+msgstr "Strona WWW sponsora"
+
+#: job/job.views_default.inc:307
+msgid "Attachment 3"
+msgstr ""
+
+#: layout/sessions.tpl.php:4
+msgid "Submit a Session"
+msgstr ""
+
+#: layout/sessions.tpl.php:5 session/session.views_default.inc:174
+msgid "Proposed Sessions"
+msgstr ""
+
+#: layout/layout.context.inc:78 layout/layout.info:0
+msgid "Layout"
+msgstr ""
+
+#: layout/layout.context.inc:184
+msgid "sitewide"
+msgstr ""
+
+#: layout/layout.module:28
+msgid "social_facebook_gplus_twitter"
+msgstr ""
+
+#: layout/layout.module:32
+msgid "flickr_gallery"
+msgstr ""
+
+#: layout/layout.module:36;66 session/session.views_default.inc:158
+msgid "Sessions"
+msgstr "Sesje"
+
+#: layout/layout.module:39
+msgid "Frontpage Top"
+msgstr ""
+
+#: layout/layout.module:43
+msgid "main_menu"
+msgstr ""
+
+#: layout/layout.module:58
+msgid "Social media profiles"
+msgstr "Profile w portalach społecznościowych"
+
+#: layout/layout.module:62
+msgid "Flickr gallery"
+msgstr ""
+
+#: news/news.features.field_instance.inc:115 page/page.features.field_instance.inc:189 partners_page/partners_page.features.field_instance.inc:251 sponsor/sponsor.features.field_instance.inc:247
+msgid "Body"
+msgstr ""
+
+#: news/news.features.field_instance.inc:116
+msgid "News Image"
+msgstr ""
+
+#: news/news.features.inc:61;63 news/news.views_default.inc:272 news/news.info:0
+msgid "News"
+msgstr ""
+
+#: news/news.views_default.inc:167
+msgid "więcej"
+msgstr ""
+
+#: news/news.views_default.inc:168
+msgid "Zastosuj"
+msgstr ""
+
+#: news/news.views_default.inc:169
+msgid "Przywróć"
+msgstr ""
+
+#: news/news.views_default.inc:170
+msgid "Sortuj po"
+msgstr ""
+
+#: news/news.views_default.inc:171
+msgid "Rosnąco"
+msgstr ""
+
+#: news/news.views_default.inc:172
+msgid "Opis"
+msgstr ""
+
+#: news/news.views_default.inc:173
+msgid "Elementów na stronę"
+msgstr ""
+
+#: news/news.views_default.inc:174
+msgid "- Wszystko -"
+msgstr ""
+
+#: news/news.views_default.inc:175
+msgid "Przesunięcie"
+msgstr ""
+
+#: news/news.views_default.inc:176
+msgid "« pierwsza"
+msgstr ""
+
+#: news/news.views_default.inc:177
+msgid "‹ poprzednia"
+msgstr ""
+
+#: news/news.views_default.inc:178
+msgid "następna ›"
+msgstr ""
+
+#: news/news.views_default.inc:179
+msgid "ostatnia »"
+msgstr ""
+
+#: news/news.views_default.inc:180
+msgid "Kanał"
+msgstr ""
+
+#: news/news.views_default.inc:279 timeslot/timeslot.views_default.inc:250
+msgid "Items per page"
+msgstr ""
+
+#: news/news.views_default.inc:280 timeslot/timeslot.views_default.inc:251
+msgid "- All -"
+msgstr ""
+
+#: news/news.views_default.inc:281 timeslot/timeslot.views_default.inc:252
+msgid "Offset"
+msgstr ""
+
+#: news/news.views_default.inc:282 timeslot/timeslot.views_default.inc:253
+msgid "« first"
+msgstr ""
+
+#: news/news.views_default.inc:283 timeslot/timeslot.views_default.inc:254
+msgid "‹ previous"
+msgstr ""
+
+#: news/news.views_default.inc:284 timeslot/timeslot.views_default.inc:255
+msgid "next ›"
+msgstr ""
+
+#: news/news.views_default.inc:285 timeslot/timeslot.views_default.inc:256
+msgid "last »"
+msgstr ""
+
+#: news/news.views_default.inc:287
+msgid "DrupalCamp Wrocław"
+msgstr ""
+
+#: page/page.features.field_instance.inc:190
+msgid "Comment"
+msgstr ""
+
+#: page/page.features.field_instance.inc:192
+msgid "View"
+msgstr ""
+
+#: partners_page/partners_page.features.field_instance.inc:252
+msgid "Partner logo"
+msgstr ""
+
+#: partners_page/partners_page.features.field_instance.inc:253
+msgid "Partner type"
+msgstr ""
+
+#: partners_page/partners_page.features.field_instance.inc:254
+msgid "Partner website"
+msgstr ""
+
+#: partners_page/partners_page.features.inc:62
+msgid "Partners"
+msgstr "Partnerzy"
+
+#: partners_page/partners_page.views_default.inc:139 partners_page/partners_page.info:0
+msgid "Partners page"
+msgstr ""
+
+#: partners_page/partners_page.views_default.inc:146
+msgid "Media partners"
+msgstr ""
+
+#: room/room.features.inc:22;24 room/room.info:0;0 session/session.views_default.inc:329 timeslot/timeslot.features.field_instance.inc:153 timeslot/timeslot.views_default.inc:150
+msgid "Room"
+msgstr ""
+
+#: session/session.features.field_instance.inc:395 session/session.views_default.inc:167
+msgid "Experience level"
+msgstr ""
+
+#: session/session.features.field_instance.inc:396
+msgid "Session Language"
+msgstr ""
+
+#: session/session.features.field_instance.inc:397
+msgid "Session Time Slot"
+msgstr ""
+
+#: session/session.features.field_instance.inc:398
+msgid "Slides"
+msgstr ""
+
+#: session/session.features.field_instance.inc:399 session/session.views_default.inc:168 userprofile/userprofile.views_default.inc:243
+msgid "Speakers"
+msgstr ""
+
+#: session/session.features.field_instance.inc:400
+msgid "Status"
+msgstr ""
+
+#: session/session.features.field_instance.inc:402
+msgid "Upload your slides here as a PDF, or link to them from the description. (This is typically done after your session.)"
+msgstr ""
+
+#: session/session.features.field_instance.inc:403
+msgid "Youtube"
+msgstr ""
+
+#: session/session.features.inc:73;75 session/session.info:0;0 timeslot/timeslot.views_default.inc:152
+msgid "Session"
+msgstr ""
+
+#: session/session.views_default.inc:165
+msgid "counter"
+msgstr ""
+
+#: session/session.views_default.inc:169
+msgid "Language"
+msgstr ""
+
+#: session/session.views_default.inc:170
+msgid "Votes"
+msgstr ""
+
+#: session/session.views_default.inc:171
+msgid "."
+msgstr ""
+
+#: session/session.views_default.inc:327 timeslot/timeslot.views_default.inc:148
+msgid "Content referencing Content from field_session_timeslot"
+msgstr ""
+
+#: session/session.views_default.inc:328;535
+msgid "Content entity referenced from field_session_timeslot"
+msgstr ""
+
+#: session/session.views_default.inc:330
+msgid "Day"
+msgstr ""
+
+#: session/session.views_default.inc:331;405
+msgid "All"
+msgstr ""
+
+#: session/session.views_default.inc:398
+msgid "Submitted sessions"
+msgstr ""
+
+#: session/session.views_default.inc:406 sponsor/sponsor.views_default.inc:106
+msgid "Block"
+msgstr ""
+
+#: session/session.views_default.inc:527
+msgid "Videos"
+msgstr ""
+
+#: session/session.views_default.inc:534
+msgid "author"
+msgstr ""
+
+#: session/session.views_default.inc:536
+msgid "[field_user_first_name] [field_user_last_name]"
+msgstr ""
+
+#: session/session.module:16
+msgid "Submitting session is no longer possible."
+msgstr ""
+
+#: sociallinks/sociallinks.module:14
+msgid "Social links"
+msgstr ""
+
+#: sociallinks/sociallinks.module:32
+msgid "Facebook"
+msgstr ""
+
+#: sociallinks/sociallinks.module:37
+msgid "Twitter"
+msgstr ""
+
+#: sociallinks/sociallinks.module:42
+msgid "Google Plus"
+msgstr ""
+
+#: sociallinks/sociallinks.module:47
+msgid "RSS"
+msgstr ""
+
+#: sociallinks/sociallinks.info:0
+msgid "SocialLinks"
+msgstr ""
+
+#: sociallinks/sociallinks.info:0
+msgid "Social Links"
+msgstr ""
+
+#: sponsor/sponsor.features.field_instance.inc:248
+msgid "Sponsor Logo"
+msgstr ""
+
+#: sponsor/sponsor.features.inc:33 userprofile/userprofile.views_default.inc:464;635
+msgid "Name"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:99;350
+msgid "Diamond sponsors"
+msgstr "Sponsorzy Diamentowi"
+
+#: sponsor/sponsor.views_default.inc:357;890
+msgid "diamond"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:358;891
+msgid "platinium"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:359
+msgid "Platinium sponsors"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:360;892
+msgid "gold"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:361
+msgid "Gold sponsors"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:883
+msgid "Sponsors"
+msgstr "Sponsorzy"
+
+#: sponsor/sponsor.views_default.inc:893
+msgid "silver"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:894
+msgid "bronze"
+msgstr ""
+
+#: sponsor/sponsor.views_default.inc:895
+msgid "party"
+msgstr ""
+
+#: text_formats/text_formats.info:0
+msgid "Text formats"
+msgstr ""
+
+#: timeslot/timeslot.features.field_instance.inc:152 timeslot/timeslot.views_default.inc:149
+msgid "Date"
+msgstr ""
+
+#: timeslot/timeslot.features.inc:29
+msgid "Time slot"
+msgstr ""
+
+#: timeslot/timeslot.views_default.inc:141
+msgid "timeslots"
+msgstr ""
+
+#: timeslot/timeslot.views_default.inc:151
+msgid "Edit link"
+msgstr ""
+
+#: timeslot/timeslot.views_default.inc:257
+msgid "Entity Reference"
+msgstr ""
+
+#: timeslot/timeslot.info:0;0
+msgid "Timeslot"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:254
+msgid "About me"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:255 userprofile/userprofile.views_default.inc:460
+msgid "First name"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:256
+msgid "Job title"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:257 userprofile/userprofile.views_default.inc:459
+msgid "Last name"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:258 userprofile/userprofile.views_default.inc:462
+msgid "Organization"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:259
+msgid "Planned attendance"
+msgstr ""
+
+#: userprofile/userprofile.features.field_instance.inc:260
+msgid "User category"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:233
+msgid "Attendees"
+msgstr "Uczestnicy"
+
+#: userprofile/userprofile.views_default.inc:240
+msgid "File"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:241
+msgid "<p>[field_user_first_name] [field_user_last_name]</p>\n<p>[field_user_organization]</p>"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:244
+msgid "Team"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:245
+msgid "Featured speakers"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:450
+msgid "Users"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:457
+msgid "Broken handler users.views_bulk_operations"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:458
+msgid "Uid"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:461;632
+msgid "E-mail"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:463;634
+msgid "Active"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:465;636
+msgid "Roles"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:625
+msgid "Users mailing"
+msgstr ""
+
+#: userprofile/userprofile.views_default.inc:633
+msgid "Broken handler views.views_send"
+msgstr ""
+
+#: userprofile/userprofile.module:25
+msgid "My profile"
+msgstr "Mój profil"
+
+#: userprofile/userprofile.module:29
+msgid "Logout"
+msgstr ""
+
+#: userprofile/userprofile.module:37
+msgid "Login"
+msgstr "Zaloguj się"
+
+#: userprofile/userprofile.module:41
+msgid "Register"
+msgstr "Zarejestruj się"
+
+#: userprofile/userprofile.info:0
+msgid "UserProfile"
+msgstr ""
+
+#: userprofile/userprofile.info:0
+msgid "User profile"
+msgstr ""
+

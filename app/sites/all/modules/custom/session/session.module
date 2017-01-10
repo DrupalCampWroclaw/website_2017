@@ -1,0 +1,235 @@
+<?php
+/**
+ * @file
+ * Code for the Session feature.
+ */
+
+include_once 'session.features.inc';
+
+/**
+ * Implements hook_permission().
+ */
+function session_permission() {
+  return array(
+    'administer session' => array(
+      'title' => t('administer session'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function session_menu() {
+  $items = array();
+  // Placeholder for application project page.
+  $items['admin/application/session-settings'] = array(
+    'title' => 'Session settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('session_admin_form'),
+    'file' => 'session.admin.inc',
+    'access arguments' => array('administer session'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+  );
+  return $items;
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function session_theme($existing, $type, $theme, $path) {
+  return array(
+    'sessions_accepted' => array(
+      'variables' => array(
+        'data' => NULL,
+      ),
+      'template' => 'sessions_accepted',
+    ),
+  );
+}
+
+
+/**
+ * Implements hook_form_alter();
+ */
+function session_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'session_node_form') {
+    // Disable session submit after end date.
+    if (REQUEST_TIME > strtotime(variable_get('session_submit_end_date', '2015-04-30')) && !user_access('administer application') && arg(1) == 'add') {
+      drupal_set_message(t('Submitting session is no longer possible.'));
+      drupal_goto('<front>');
+    }
+  }
+}
+
+/**
+ * Implements hook_block_info()).
+ */
+function session_block_info() {
+  $blocks['session_accepted_sessions'] = array(
+    'info' => t('session_accepted_sessions'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+
+/**
+ * Implements hook_block_view().
+ */
+function session_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'session_accepted_sessions':
+      $block['subject'] = '';
+      $block['content'] = session_accepted_sessions_block();
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Implements hook_flag_access().
+ */
+function session_flag_access($flag, $entity_id, $action, $account) {
+  $access = array();
+  if ($flag->name == 'session_vote') {
+    if (REQUEST_TIME > strtotime(variable_get('session_voting_end_date', '2015-05-15')) && !user_access('administer application')) {
+      $access = FALSE;
+    }
+    else {
+      $access = TRUE;
+    }
+  }
+  return $access;
+}
+
+function session_get_conference_days() {
+  $ret = variable_get('session_conference_days',
+    array(
+      '2015-05-29',
+      '2015-05-30',
+      '2015-05-31',
+    ));
+  return $ret;
+}
+
+function session_get_rooms() {
+  $query = db_select('node', 'n');
+
+  $query->leftJoin('field_data_field_room_weight', 'rw', 'n.nid = rw.entity_id');
+  $query->fields('n');
+  $query->fields('rw');
+  $query->condition('type', 'room');
+  $query->orderBy('field_room_weight_value');
+
+  $result = $query->execute()->fetchAllAssoc('nid');
+
+  return $result;
+}
+
+function sessions_get_session_by_room_and_day($room_node_nid, $date) {
+  $format_date = 'Y-m-d\TH:i:s';
+
+  $date_from = date($format_date, strtotime($date));
+  $date_to = date($format_date, strtotime($date . ' + 1 day'));
+
+  // Get timeslots for this room and filter by date.
+  $query = db_select('field_data_field_timeslot_room', 'field_timeslot_room');
+  $query->fields('field_timeslot_room');
+  $query->condition('field_timeslot_room.field_timeslot_room_target_id', $room_node_nid);
+
+  $query->join('field_data_field_timeslot_date', 'field_data_field_timeslot_date', 'field_data_field_timeslot_date.entity_id = field_timeslot_room.entity_id');
+  $query->fields('field_data_field_timeslot_date', array('field_timeslot_date_value', 'field_timeslot_date_value2'));
+
+  $query->condition('field_timeslot_date_value', $date_from, '>=');
+  $query->condition('field_timeslot_date_value2', $date_to, '<=');
+
+  $result = $query->execute()->fetchAllAssoc('entity_id');
+
+  $timeslots_nids = array_keys($result);
+
+  // Find sessions for timeslots.
+  $sessions_nids = array();
+  if ($timeslots_nids) {
+    $query = db_select('field_data_field_session_timeslot', 'field_data_field_session_timeslot');
+    $query->fields('field_data_field_session_timeslot');
+    $query->condition('field_data_field_session_timeslot.field_session_timeslot_target_id', $timeslots_nids, 'IN');
+
+    $query->join('field_data_field_timeslot_date', 'field_data_field_timeslot_date', 'field_data_field_timeslot_date.entity_id = field_data_field_session_timeslot.field_session_timeslot_target_id');
+
+    $query->orderBy('field_timeslot_date_value');
+
+    $sessions = $query->execute()->fetchAllAssoc('entity_id');
+    $sessions_nids = array_keys($sessions);
+  }
+
+
+  $sessions_nodes = array();
+  if ($sessions_nids) {
+    foreach ($sessions_nids as $nid) {
+      $sessions_nodes[$nid] = node_load($nid);
+    }
+
+  }
+
+  return $sessions_nodes;
+}
+
+function sessions_get_sessions_data($days, $rooms) {
+
+  $data = array();
+
+  foreach ($days as $day) {
+    foreach ($rooms as $room_nid => $room) {
+      $sessions_in_room_by_day = sessions_get_session_by_room_and_day($room_nid, $day);
+      if ($sessions_in_room_by_day) {
+        $data[$day][$room_nid] = $sessions_in_room_by_day;
+      }
+    }
+  }
+
+  return $data;
+}
+
+function session_accepted_sessions_block() {
+  $output = '';
+
+  $days = session_get_conference_days();
+  $rooms = session_get_rooms();
+
+
+  $data =  sessions_get_sessions_data($days, $rooms);
+  $output .= theme('sessions_accepted', array('data' => $data));
+
+  return $output;
+}
+
+function session_get_time_start_and_end($node_session) {
+  $ret = array(
+    'timeslot_from' => REQUEST_TIME,
+    'timeslot_to' => REQUEST_TIME,
+  );
+
+
+  // Get timeslot node.
+  if (isset($node_session->field_session_timeslot['und'][0]['target_id'])) {
+    $timeslot_node = node_load($node_session->field_session_timeslot['und'][0]['target_id']);
+
+
+    if (isset($timeslot_node->field_timeslot_date['und'][0])) {
+      $date_object = $timeslot_node->field_timeslot_date['und'][0];
+
+      $ret = array(
+        'timeslot_from' => strtotime($date_object['value'] . ' ' . $date_object['timezone_db']),
+        'timeslot_to' => strtotime($date_object['value2'] . ' ' . $date_object['timezone_db']),
+      );
+    }
+  }
+
+  return $ret;
+}

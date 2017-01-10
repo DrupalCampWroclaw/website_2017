@@ -1,0 +1,440 @@
+/**
+ * This file should be removed.
+ * Move code to separate files.
+ */
+
+$max-page-width: $width-page;
+
+/**
+ * Styles.
+ */
+
+#page-bottom-links,
+#main,
+#header {
+  max-width: $max-page-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header-over {
+
+}
+
+#site-name {
+  padding: 0.25em 1em;
+}
+
+.sidebars {
+  @media (max-width: 480px) {
+    padding-top: 1em;
+    clear: both;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebars .block {
+    clear: both;
+  }
+}
+
+#page-title {
+  color: $red1;
+  font-family: $bree;
+  font-size: 48px;
+  line-height: 50px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+
+.view-bannerslider {
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      display: block;
+    }
+  }
+}
+
+#admin-menu-icon img {
+  width: 15px;
+  height: 15px;
+}
+
+/** ---------------------------------  */
+
+#main {
+  padding-top: 1em;
+  #content {
+    background: $bg1;
+    min-height: 30em;
+
+    h1.title {
+      text-transform: uppercase;
+    }
+  }
+}
+
+#page-bottom-links-over,
+#footer {
+  .block {
+    background: none;
+    padding: 0.5em 1em;
+    @include box-sizing(border-box);
+    h2.block-title {
+      color: $red1;
+      text-transform: uppercase;
+      line-height: 1.7em;
+    }
+  }
+}
+
+#main {
+  .block {
+    background: none;
+    padding: 0.5em 1em;
+    h2.block-title {
+      color: $gray4;
+      text-transform: uppercase;
+      line-height: 30px;
+      font-size: 18px;
+      background: url("../images/header_bg_1.png") 0 0 repeat;
+      font-family: $bree;
+      font-weight: 400;
+      @media only screen and (min-width: $screen-mobile-mid) and (max-width: $screen-tablet-min) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+#footer {
+  margin-top: 1em;
+  #block-block-1 {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    padding: 1em 0;
+    > div {
+      padding: 0.5em;
+    }
+  }
+}
+
+/* node */
+
+.submitted {
+  color: $grey2;
+  font-size: 0.9em;
+}
+
+.node-news {
+  p {
+    margin: 0;
+  }
+}
+
+.node-news.node-teaser {
+  .field-name-field-news-image {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+
+  ul.links {
+    clear: both;
+    float: right;
+  }
+}
+
+.node-news.view-mode-full {
+  .field-name-field-news-image {
+    float: left;
+    margin: 0 1em 1em 0;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .page-attendees #content {
+    clear: both;
+    float: left;
+    width: 100%;
+  }
+}
+
+#page-bottom-links-over {
+  margin-top: 1em;
+  text-align: center;
+}
+
+#block-layout-social-facebook-gplus-twitter {
+
+  #social-media-widgets {
+
+    .social-media {
+      padding-top: 1em;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @media all and (min-width: 960px) {
+      #social-media-twitter {
+        width: 33.3%;
+        float: left;
+      }
+      #social-media-gplus {
+        width: 33.3%;
+        float: left;
+      }
+      #social-media-fb {
+        width: 33.3%;
+        float: left;
+      }
+
+    }
+  }
+
+}
+
+#block-layout-flickr-gallery {
+  #flickr_badge_uber_wrapper,
+  #flickr_badge_wrapper {
+    width: 100%;
+    text-align: center;
+  }
+  .flickr_badge_image {
+    /* float: left; */
+    display: inline;
+  }
+  #flickr_badge_source {
+    clear: both;
+
+    text-align: center;
+  }
+}
+
+.node-session.view-mode-full {
+  ul.links {
+    margin: 1em 0;
+
+    display: block;
+
+  }
+  .flag-wrapper {
+    font-weight: bold;
+  }
+}
+
+.node-sponsor.view-mode-full {
+  .field-name-field-sponsor-logo {
+    border: 1px solid $grey3;
+
+  }
+}
+
+/* Comments */
+.comment {
+  border: 1px solid $grey3;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  header p {
+    margin: 0;;
+  }
+  .field p {
+    margin: 0.5em 0;
+  }
+}
+
+.view-sponsors-page {
+  text-align: center;
+  h3 {
+    color: $red1;
+    width: 100%;
+    clear: both;
+    float: left;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+
+    .views-row {
+      display: inline-block;
+      width: 49%;
+      text-align: center;
+      height: 150px;
+      position: relative;
+
+      .views-field-field-sponsor-logo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+      }
+
+    }
+
+    // Gold
+    .view-display-id-attachment_2 {
+      .views-row {
+        width: 33%;
+      }
+    }
+    // Gold
+    .view-display-id-attachment_3 {
+      .views-row {
+        width: 33%;
+      }
+    }
+    // Gold
+    .view-display-id-attachment_4 {
+      .views-row {
+        width: 25%;
+      }
+    }
+    // Gold
+    .view-display-id-attachment_5 {
+      .views-row {
+        width: 100%;
+      }
+    }
+    // Graphics
+    .view-display-id-attachment_6 {
+      .views-row {
+        width: 33%;
+      }
+    }
+    // Prize
+    .view-display-id-attachment_7 {
+      .views-row {
+        width: 33%
+      }
+    }
+  }
+}
+
+#footer-inner {
+  .block {
+    width: 100%;
+    clear: both;
+    float: left;
+  }
+}
+
+.view-id-sponsors_frontpage_block {
+  text-align: center;
+}
+
+.view-id-sponsors_frontpage_block.view-display-id-block {
+
+  .views-row {
+    float: left;
+    width: 50%;
+    &.views-row-first {
+      &.views-row-last {
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.view-id-sponsors_frontpage_block.view-display-id-block_1 {
+  .views-row {
+    float: left;
+    width: 100%;
+  }
+}
+
+.view-id-sponsors_frontpage_block.view-display-id-block_2 {
+  .views-row {
+    float: left;
+    width: 100%;
+  }
+}
+
+.view-sponsors-diamond-block {
+  text-align: center;
+  .view-footer {
+    margin-top: 1em;
+  }
+}
+
+.profile .user-picture {
+  float: none;
+}
+
+.page-jobs {
+  #content {
+    table {
+      td {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.view-sessions-accepted-calendar {
+  .pager {
+    display: none;
+  }
+
+  .calendar-agenda-items,
+  .calendar-agenda-items,
+  .calendar-dayview-hour {
+
+  }
+
+  .calendar-calendar {
+
+    table {
+      th {
+        background: $blue1;
+        color: white;
+      }
+
+      td {
+        width: 50%;
+      }
+
+      .multi-day,
+      .calendar-agenda-hour,
+      .calendar-dayview-hour {
+        display: none;
+      }
+
+      .date-display-single {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: $red1;
+      }
+
+      .views-field.views-field-field-session-speakers {
+        a {
+          color: $grey2;
+        }
+      }
+
+      .views-field.views-field-title {
+        font-size: 1.2em;
+      }
+
+      .calendar.dayview,
+      td.single-day div.dayview,
+      td .inner div, .calendar-calendar td .inner div a {
+        background: white !important;
+      }
+
+      td.single-day div.dayview {
+        background: white;
+        width: auto;
+        padding: 0px 3px;
+        overflow: hidden;
+      }
+    }
+  }
+}

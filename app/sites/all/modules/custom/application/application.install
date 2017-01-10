@@ -1,0 +1,612 @@
+<?php
+
+function _application_t() {
+  t('Execute');
+  t('- Choose an operation -');
+  t('Choose an operation');
+  t('Delete item');
+  t('Modify entity values');
+}
+
+/**
+ * Implements hook_install().
+ */
+function application_install() {
+  // Enable modules.
+  $module_list = array(
+    'node',
+    'layout',
+    'backup_migrate'
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+
+  // Update translations.
+  application_api_update_translations();
+
+  variable_set('date_default_timezone', 'Europe/Berlin');
+  variable_set('site_frontpage', 'main');
+
+  application_api_features_revert(application_features_list());
+  // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  // Url aliases.
+  $path = array('source' => 'user/register', 'alias' => 'rejestracja', 'language' => 'pl');
+  path_save($path);
+
+  $path = array('source' => 'user/register', 'alias' => 'create-account', 'language' => 'en');
+  path_save($path);
+
+  $theme_settings = variable_get('theme_settings');
+  $theme_settings['toggle_main_menu'] = 0;
+  variable_set('theme_settings', $theme_settings);
+}
+
+/**
+ * Update 2014-02-15
+ */
+function application_update_7019() {
+    // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-03-19
+ */
+function application_update_7020() {
+    // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-03-20
+ */
+function application_update_7022() {
+   // Enable modules.
+  $module_list = array(
+    'comment',
+    'link',
+    'image_link_formatter',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update 2014-03-20
+ */
+function application_update_7023() {
+
+  $nodes = node_load_multiple(array(), array('type' => 'session'));
+  foreach ($nodes as $node) {
+    $node->comment = COMMENT_NODE_OPEN;
+    node_save($node);
+  }
+
+  $nodes = node_load_multiple(array(), array('type' => 'news'));
+  foreach ($nodes as $node) {
+    $node->comment = COMMENT_NODE_OPEN;
+    node_save($node);
+  }
+
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-03-20
+ */
+function application_update_7024() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-04-09
+ */
+function application_update_7025() {
+     // Enable modules.
+  $module_list = array(
+    'job',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  $item = array(
+    'link_path' => 'jobs',
+    'link_title' =>t('Jobs'),
+    'menu_name' => 'main-menu',
+    'weight' => 30,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+}
+
+/**
+ * Update 2014-05-02
+ */
+function application_update_7026() {
+    // Enable modules.
+  $module_list = array(
+    'auto_nodetitle',
+    'room',
+    'date_views',
+    'views_send',
+    'views_bulk_operations',
+    'clone',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-05-02
+ */
+function application_update_7027() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-05-10
+ */
+function application_update_7028() {
+    // Enable modules.
+  $module_list = array(
+    'botcha',
+    'application_settings',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2014-05-30
+ */
+function application_update_7029() {
+  // Enable modules.
+  $module_list = array(
+    'video_embed_field',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  drupal_flush_all_caches();
+}
+
+
+/**
+ * Update 2014-05-30
+ */
+function application_update_7030() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+
+/**
+ * Update 2015-01-17
+ */
+function application_update_7031() {
+
+  $module_list = array(
+    'partners_page',
+    'title',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update 2015-01-24
+ */
+function application_update_7032() {
+  module_enable(array('entity_translation', 'title'));
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list()); // Try to revert Page feature. Don't work in first revert.
+
+  $node_types = array('forum', 'job', 'news', 'page', 'partners', 'room', 'session', 'sponsor', 'timeslot');
+  foreach($node_types as $node_type){
+    title_field_replacement_batch_set('node', $node_type, 'title');
+  }
+
+  //Create featured speakers
+  $users = array('12', '14', '21');
+  foreach ($users as $user) {
+    $user = user_load($user);
+    $user->field_user_category['und'][0]['value'] = 'featured';
+    user_save($user);
+  }
+
+  // Expand all menu items in main menu.
+  $menu_items = menu_tree_all_data('main-menu', NULL, 1);
+  foreach ($menu_items as $menu_item) {
+    $link = $menu_item['link'];
+    $mlid = $link['mlid'];
+    $menu_item_loaded = menu_link_load($mlid);
+    $menu_item_loaded['expanded'] = 1;
+    menu_link_save($menu_item_loaded);
+  }
+
+  node_delete(11); // Partners node delete - replaced by view.
+
+  $item = array(
+    'link_path' => 'partners',
+    'link_title' => 'Partners',
+    'menu_name' => 'main-menu',
+    'weight' => -43,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+
+
+  // Update block content.
+  $query = "UPDATE  `drupalcamp`.`block_custom` SET  `body` =  '<ul>
+	<li>01.02.2015 - 30.04.2015 Call for papers.</li>
+	<li>01.05.2015 - 15.05.2015 Voting for sessions.</li>
+	<li>29 - 31.05.2015 DrupalCamp Wroclaw</li>
+</ul>
+  ' WHERE  `block_custom`.`bid` =2;";
+  db_query($query);
+}
+
+
+/**
+ * Update 2015-02-17
+ */
+function application_update_7033() {
+  // Enable modules.
+  $module_list = array(
+    'flickr',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+
+
+  //application_api_features_revert(application_features_list());
+
+}
+
+/**
+ * Update 2015-02-17
+ */
+function application_update_7034() {
+  // Enable modules.
+  $module_list = array(
+    'module_filter',
+    'views_rss',
+    'views_rss_core',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+
+
+  application_api_features_revert(application_features_list());
+
+}
+
+/**
+ * Update 2015-02-23
+ */
+function application_update_7035() {
+  // Enable modules.
+  $module_list = array(
+    'navigation404',
+    'bean',
+    'bean_admin_ui',
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  application_api_update_translations();
+}
+
+/**
+ * Update 2015-03-03: Create Polish Main Menu.
+ */
+function application_update_7036() {
+
+  $menu = array(
+    'menu_name' => 'pl-main-menu',
+    'title' => 'Polish Main Menu',
+    'description' => '',
+  );
+  menu_save($menu);
+
+  // menu links
+
+  $item = array(
+    'link_path' => '<front>',
+    'link_title' => 'Home',
+    'menu_name' => 'pl-main-menu',
+    'weight' => -10,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'link_path' => 'node/2',
+    'link_title' => 'Konferencja',
+    'menu_name' => 'pl-main-menu',
+    'expanded' => 1,
+    'weight' => -9,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+
+  $links = array(
+    'O Konferencji' => 'node/2',
+    'Zaakceptowane sesje' => 'node/70',
+    'Proponowane sesje' => 'sessions/proposed',
+  );
+
+  $weight = 0;
+
+  foreach($links as $title => $path) {
+    $item_child = array(
+      'link_path' => $path,
+      'link_title' => $title,
+      'menu_name' => 'pl-main-menu',
+      'expanded' => 1,
+      'weight' => $weight++,
+      'plid' => $item['mlid'],
+      'module' => 'menu',
+    );
+    menu_link_save($item_child);
+  }
+
+  $item = array(
+    'link_path' => '<front>',
+    'link_title' => 'Lokalizacja',
+    'menu_name' => 'pl-main-menu',
+    'weight' => -8,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+
+  $item = array(
+    'link_path' => '<front>',
+    'link_title' => 'Ludzie',
+    'menu_name' => 'pl-main-menu',
+    'expanded' => 1,
+    'weight' => -7,
+    'plid' => 0,
+    'module' => 'menu',
+  );
+  menu_link_save($item);
+
+
+  $links = array(
+    'Uczestnicy' => 'attendees',
+    'Mówcy' => 'speakers',
+    'Ekipa' => 'team',
+  );
+
+  $weight = 0;
+
+  foreach($links as $title => $path) {
+    $item_child = array(
+      'link_path' => $path,
+      'link_title' => $title,
+      'menu_name' => 'pl-main-menu',
+      'expanded' => 1,
+      'weight' => $weight++,
+      'plid' => $item['mlid'],
+      'module' => 'menu',
+    );
+    menu_link_save($item_child);
+  }
+
+
+  $links = array(
+    'Sponsorzy' => 'sponsors',
+    'Oferty pracy' => 'jobs',
+    'Forum' => 'forum',
+    'Partnerzy' => 'partners',
+    'Kontakt' => 'node/7',
+  );
+
+  $weight = -7;
+
+  foreach($links as $title => $path) {
+    $item = array(
+      'link_path' => $path,
+      'link_title' => $title,
+      'menu_name' => 'pl-main-menu',
+      'expanded' => 1,
+      'weight' => $weight++,
+      'plid' => 0,
+      'module' => 'menu',
+    );
+    menu_link_save($item);
+  }
+
+  // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  application_api_update_translations();
+}
+
+/**
+ * Update 2015-03-16: Enable GlobalRedirect module.
+ */
+
+function application_update_7037() {
+
+  $module_list = array(
+    'globalredirect'
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+  // Flush caches.
+  drupal_flush_all_caches();
+
+}
+
+/*
+ * Text.
+ */
+
+function application_update_7038() {
+  $bean = bean_create(array('type' => 'simple_block_with_translations'));
+  $bean->label = 'Sponsors text';
+  $bean->title = '';
+  $bean->delta = 'sponsor-text';
+  $bean->field_block_content = array(
+    'en' => array(
+      0 => array(
+        'format' => 'full_html',
+        'value' => '<p>With our proposal we would like to encourage you to help with organization of the third conference in Poland devoted to CMS Drupal. We believe that the event will attract many experts, at the same time allowing you to promote your own business.
+                  <a href="http://www.drupalcampwroclaw.pl/downloadfiles/sponsorship_offer.pdf">Click here to download Sponsorship offer in PDF</a></p>',
+      ),
+    ),
+
+    'pl' => array(
+      0 => array(
+        'format' => 'full_html',
+        'value' => '<p>With our proposal we would like to encourage you to help with organization of the third conference in Poland devoted to CMS Drupal. We believe that the event will attract many experts, at the same time allowing you to promote your own business.
+                  <a href="http://www.drupalcampwroclaw.pl/downloadfiles/sponsorship_offer.pdf">Click here to download Sponsorship offer in PDF</a></p>',
+      ),
+    ),
+
+  );
+  $bean->save();
+
+  $bean = bean_create(array('type' => 'simple_block_with_translations'));
+  $bean->label = 'Proposed sessions text';
+  $bean->title = '';
+  $bean->delta = 'proposed-sessions-text';
+  $bean->field_block_content = array(
+    'en' => array(
+      0 => array(
+        'format' => 'full_html',
+        'value' => '<p>The time for one session is maximum 60 minutes. The first 45 minutes are for the session itself, while the next 15 mins are for attendees\' questions. When the session lasts too long, it must be stopped after 60 minutes to allow the participants to go to the next lecture and the speakers to prepare for the next presentation</p>'
+      ),
+    ),
+
+    'pl' => array(
+      0 => array(
+        'format' => 'full_html',
+        'value' => '<p>The time for one session is maximum 60 minutes. The first 45 minutes are for the session itself, while the next 15 mins are for attendees\' questions. When the session lasts too long, it must be stopped after 60 minutes to allow the participants to go to the next lecture and the speakers to prepare for the next presentation</p>'
+      ),
+    ),
+
+  );
+  $bean->save();
+
+  drupal_flush_all_caches();
+}
+
+/**
+ * Update 2015-04-03.
+ */
+function application_update_7039() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * Update 2015-04-15.
+ */
+
+function application_update_7040() {
+  drupal_flush_all_caches();
+  //module_load_include('inc', 'application', 'includes/7040_tshirt_sizes_term');
+  //application_7040_tshirt_sizes_term();
+
+  variable_set('session_voting_end_date', '2015-05-15');
+}
+
+/**
+ * Update 2015-04-17.
+ */
+function application_update_7041() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/*
+ * Update field_session_type in session nodes.
+ *
+ */
+function application_update_7042() {
+
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', array('session'))
+    ->propertyCondition('status', 1);
+
+  $result = $query->execute();
+
+  if (!empty($result['node'])) {
+    $nids = array_keys($result['node']);
+
+    foreach ($nids as $nid) {
+      $node = node_load($nid);
+      $node->field_session_type[$node->language][0]['value'] = 'lecture';
+      node_save($node);
+    }
+  }
+}
+
+/**
+ * 2015-04-24: Enable MobileApi module.
+ */
+function application_update_7043() {
+  $module_list = array(
+    'mobileapi'
+  );
+  module_enable($module_list);
+  module_list(TRUE, FALSE);
+
+  // Flush caches.
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}
+
+/**
+ * 2015-05-05.
+ */
+function application_update_7044() {
+  drupal_flush_all_caches();
+  application_api_features_revert(application_features_list());
+}

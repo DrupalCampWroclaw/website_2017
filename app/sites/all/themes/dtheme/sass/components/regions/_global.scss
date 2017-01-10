@@ -1,0 +1,12 @@
+#main-over {
+  margin-top: 0;
+  background: url("../images/main_bg.jpg") 0 0 no-repeat;
+  background-size: cover;
+  padding-bottom: 30px;
+
+  #main {
+    #content {
+      background: none;
+    }
+  }
+}

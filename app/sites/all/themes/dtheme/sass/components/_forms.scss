@@ -1,0 +1,53 @@
+
+
+
+form {
+
+  button,
+  input[type="submit"],
+  input[type=button] {
+
+    &:hover{
+
+    }
+    &:active{
+
+    }
+  }
+
+  // Form items margin.
+  input[type="submit"],
+  input[type=button],
+  input[type="text"],
+  input[type="password"],
+  textarea,
+  select {
+
+  }
+
+  input[type=checkbox] {
+
+  }
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
+
+    &:focus {
+
+    }
+    &.error {
+
+    }
+  }
+
+  select {
+
+  }
+
+  .form-actions {
+    .form-submit {
+
+    }
+  }
+}

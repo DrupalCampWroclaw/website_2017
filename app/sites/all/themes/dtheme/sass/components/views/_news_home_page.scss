@@ -1,0 +1,105 @@
+.view-news-frontpage {
+  .node-title {
+    a {
+      text-decoration: none;
+      font-size: 30px;
+      line-height: 36px;
+      font-weight: 400;
+      color: $blue1;
+      font-family: $bree;
+    }
+  }
+  .submitted {
+    color: $blue1;
+    font-family: $bree;
+    padding-bottom: 25px;
+  }
+
+  .node-read-more {
+    float: right;
+    width: 100%;
+    position: static;
+    .links {
+      float: right;
+    }
+  }
+  .views-row {
+    .node-news.node-teaser {
+      .field-name-field-news-image {
+        float: left;
+        margin: 0 1.5em 1.5em 0;
+
+        @media only screen and (min-width : $screen-mobile-mid ) and (max-width: $screen-tablet-mid) {
+          float: none;
+          clear: both;
+          width: 100%;
+          margin-bottom: 20px;
+          img {
+            width: 350px;
+            margin: 0 auto;
+            display: block;
+          }
+        }
+        @media only screen and (min-width : $screen-mobile-min ) and (max-width: $screen-mobile-max) {
+          max-width: 100%;
+          float: none;
+          clear: both;
+        }
+      }
+      .field-name-body {
+        @media only screen and (min-width : $screen-mobile-min ) and (max-width: $screen-tablet-mid) {
+          padding-bottom: 20px;
+        }
+      }
+
+      ul.links {
+        background: url("../images/news_sep.png") top left repeat-x;
+        width: 100%;
+        @include pie-clearfix;
+        margin: 0;
+        padding: 20px 0 35px 0;
+        color: $red1;
+        text-align: right;
+
+        li {
+          font-size: 13px;
+          &:last-child {
+            padding: 0;
+          }
+        }
+
+        a {
+          color: $red1;
+          font-size: 13px;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    &.views-row-last {
+      .node-news.node-teaser {
+        ul.links {
+          padding-bottom: 8px;
+        }
+      }
+    }
+  }
+  .view-footer {
+    .more-link {
+      a {
+        color: $red1;
+        font-family: $bree;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

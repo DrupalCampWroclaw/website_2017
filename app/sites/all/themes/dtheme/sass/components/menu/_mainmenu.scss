@@ -1,0 +1,81 @@
+#mainmenu {
+  padding: 0;
+  h2.block-title{
+    display: none;
+  }
+  .block {
+    margin: 0;
+    padding: 0;
+  }
+  ul#superfish-1.sf-menu {
+
+    li {
+      display: inline;
+      padding:  0.7 1em;
+      background: transparent;
+      font-size: 1.2em;
+      ul{
+        margin: 0;
+        padding: 0;
+        top: 2em;
+        li {
+          text-align: left;
+          margin: 0;
+          padding: 0;
+          background: $red1;
+          a {
+
+          }
+        }
+        li:hover  a {
+          color: black;
+        }
+      }
+      a {
+        color: white;
+        display: block;
+        padding: 0.5em 0.5em;
+      }
+      margin: 0 0.5em;
+      text-align: center;
+
+    }
+
+    li:hover{
+      background: $orange1;
+    }
+
+    li:hover >  a{
+      color: black;
+
+    }
+    li.active-trail,
+    li.active {
+      background: $blue1;
+      a{
+        color: white;
+      }
+    }
+    li:hover,
+    li.active,
+    li.active-trail {
+      ul {
+        top: 2em;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+#mainmenu-over {
+  background: $color9;
+  color: $color_white;
+  margin-top: 0em;
+  height: 42px;
+
+  @media only screen and (max-width : $screen-mobile-max2 ) {
+    height: 5px;
+  }
+}
