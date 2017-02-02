@@ -74,7 +74,7 @@ function userprofile_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 51,
+      'weight' => 12,
     ),
   );
 
@@ -109,7 +109,7 @@ function userprofile_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 15,
+      'weight' => 10,
     ),
   );
 
@@ -141,7 +141,7 @@ function userprofile_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 52,
+      'weight' => 13,
     ),
   );
 
@@ -176,7 +176,7 @@ function userprofile_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 5,
     ),
   );
 
@@ -211,7 +211,7 @@ function userprofile_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => 7,
     ),
   );
 
@@ -246,7 +246,7 @@ function userprofile_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 12,
+      'weight' => 6,
     ),
   );
 
@@ -281,7 +281,42 @@ function userprofile_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 14,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_user_town'
+  $field_instances['user-user-field_user_town'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_user_town',
+    'label' => 'Town',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 9,
     ),
   );
 
@@ -312,7 +347,7 @@ function userprofile_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 53,
+      'weight' => 14,
     ),
   );
 
@@ -326,6 +361,7 @@ function userprofile_field_default_field_instances() {
   t('Organization');
   t('Planned attendance');
   t('T-shirt size');
+  t('Town');
   t('User category');
 
   return $field_instances;
