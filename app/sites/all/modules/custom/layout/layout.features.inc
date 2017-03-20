@@ -25,6 +25,45 @@ function layout_ctools_plugin_api($module = NULL, $api = NULL) {
 function layout_image_default_styles() {
   $styles = array();
 
+  // Exported image style: upscale150px.
+  $styles['upscale150px'] = array(
+    'name' => 'upscale150px',
+    'label' => 'upscale150px',
+    'effects' => array(
+      2 => array(
+        'label' => 'Skala',
+        'help' => 'Skalowanie zachowa proporcje oryginalnego obrazka. Jeśli zostanie podany jeden wymiar drugi zostanie obliczony automatycznie.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 150,
+          'height' => 150,
+          'upscale' => 1,
+        ),
+        'weight' => -10,
+      ),
+      1 => array(
+        'label' => 'Skalowanie i przycinanie',
+        'help' => 'Efekt skalowanie i przycinanie zachowa proporcje oryginalnego obrazu podczas skalowania a następnie przytnie obrazek na dłuższym brzegu. Efekt jest przydatny do tworzenia kwadratowych miniatur bez rozciągania obrazu.',
+        'effect callback' => 'image_scale_and_crop_effect',
+        'dimensions callback' => 'image_resize_dimensions',
+        'form callback' => 'image_resize_form',
+        'summary theme' => 'image_resize_summary',
+        'module' => 'image',
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 150,
+          'height' => 150,
+        ),
+        'weight' => -9,
+      ),
+    ),
+  );
+
   // Exported image style: width175px.
   $styles['width175px'] = array(
     'name' => 'width175px',
