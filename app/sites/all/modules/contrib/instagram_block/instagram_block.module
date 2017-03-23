@@ -42,7 +42,7 @@ function instagram_block_help($path, $arg) {
  */
 function instagram_block_block_info() {
   // @todo Find a better way to manage access for tag block.
-  $tag_block = variable_get('instagram_block_enable_tag_block', FALSE);
+  $tag_block = variable_get('instagram_block_enable_tag_block', TRUE);
 
   $blocks['instagram_block'] = array(
     'info' => t('Instagram Block - User Block'),
