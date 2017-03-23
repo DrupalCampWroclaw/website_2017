@@ -13,6 +13,80 @@ function layout_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'instagram_block_admin_settings';
+  $strongarm->value = array(
+    'user_id' => '4637216735',
+    'access_token' => '4637216735.1677ed0.6aaeabea9f624a6fafab2be22be8c4f7',
+    'submit' => 'Zapisz',
+    'form_build_id' => 'form-YAdCHk8rBS_Hd5iFH3BB2Voe8W2qXvqrMA9gkMdwOFs',
+    'form_token' => 'hTDF8RLcRmjna-jf3YYU-a2qzIKVvkdbnM3o2eazeV0',
+    'form_id' => 'instagram_block_admin_settings',
+    'op' => 'Zapisz',
+  );
+  $export['instagram_block_admin_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'instagram_block_tag_block_settings';
+  $strongarm->value = array(
+    'tag' => 'drupal',
+    'count' => '4',
+    'width' => '100',
+    'height' => '100',
+    'img_resolution' => 'thumbnail',
+  );
+  $export['instagram_block_tag_block_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'instagram_block_user_block_settings';
+  $strongarm->value = array(
+    'count' => '6',
+    'width' => '175',
+    'height' => '175',
+    'img_resolution' => 'thumbnail',
+    'module' => 'instagram_block',
+    'delta' => 'instagram_block',
+    'title' => 'Galeria Instagram - dodaj swoje zdjęcia z konferencji!',
+    'regions' => array(
+      'dtheme' => -1,
+      'seven' => -1,
+    ),
+    'visibility' => '0',
+    'pages' => '',
+    'roles' => array(
+      1 => 0,
+      2 => 0,
+      3 => 0,
+      4 => 0,
+      5 => 0,
+    ),
+    'custom' => '0',
+    'types' => array(
+      'job' => 0,
+      'news' => 0,
+      'partners' => 0,
+      'room' => 0,
+      'session' => 0,
+      'sponsor' => 0,
+      'page' => 0,
+      'forum' => 0,
+      'timeslot' => 0,
+    ),
+    'visibility__active_tab' => 'edit-path',
+    'submit' => 'Zachowaj',
+    'form_build_id' => 'form-AmXy_sho8fUTOHc5C_XAEKRTNBTA7RlErYEJX6oVBOM',
+    'form_token' => 'sNjG8F9N7DHT09Tt-uudkYu5_-DLe-0E-VwXJ-mtUi0',
+    'form_id' => 'block_admin_configure',
+    'op' => 'Zachowaj',
+  );
+  $export['instagram_block_user_block_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'superfish_arrow_1';
   $strongarm->value = 0;
   $export['superfish_arrow_1'] = $strongarm;
