@@ -55,6 +55,7 @@ function layout_block_info() {
  */
 function layout_block_view($delta = '') {
   // This example is adapted from node.module.
+  global $user;
   $block = array();
 
   switch ($delta) {
@@ -113,8 +114,10 @@ function layout_block_view($delta = '') {
       break;
 
     case 'promo_block':
-      $block['subject'] = variable_get_lang('appset_pormo_title_block');
-      $block['content'] = layout_block_promo_block();
+      if (user_is_anonymous()) {
+        $block['subject'] = variable_get_lang('appset_pormo_title_block');
+        $block['content'] = layout_block_promo_block();
+      }
       break;
   }
   return $block;
