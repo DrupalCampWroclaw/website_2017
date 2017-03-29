@@ -610,3 +610,19 @@ function application_update_7044() {
   drupal_flush_all_caches();
   application_api_features_revert(application_features_list());
 }
+
+/**
+ * 2017-03-29: Add promo block.
+ */
+function application_update_7048() {
+  variable_set('appset_pormo_block_pl', "<ul>
+<li>Wykłady prowadzone przez specjalistów.</li>
+<li>Spotkania z ekspertami.</li>
+<li>Drupal Party.</li>
+<li>T-skirty i inne gadżety.</li>
+<li>Bardzo duża dawka specjalistycznej wiedzy.</li>
+</ul>
+<p class='rtecenter'><strong>Wstęp bezpłatny!</strong></p>
+<p class='rtecenter'><a href='/rejestracja/'>Zarejestruj sie już dziś!</a></p>");
+  application_api_features_revert(application_features_list());
+}

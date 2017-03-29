@@ -43,6 +43,10 @@ function layout_block_info() {
     'info' => t('main_menu'),
   );
 
+  $blocks['promo_block'] = array(
+    'info' => t('Promo block'),
+  );
+
   return $blocks;
 }
 
@@ -102,9 +106,15 @@ function layout_block_view($delta = '') {
       $block['subject'] = '';
       $block['content'] = variable_get_lang('appset_frontpage_top', '');
       break;
+
     case 'main_menu':
       $block['subject'] = '';
       $block['content'] = layout_block_main_menu();
+      break;
+
+    case 'promo_block':
+      $block['subject'] = t('Drupal Camp');
+      $block['content'] = layout_block_promo_block();
       break;
   }
   return $block;
@@ -182,4 +192,13 @@ function layout_language_links() {
 
 
   return $output;
+}
+
+/**
+ * Promo block.
+ *
+ * @return string
+ */
+function layout_block_promo_block() {
+  return variable_get_lang('appset_pormo_block');
 }
