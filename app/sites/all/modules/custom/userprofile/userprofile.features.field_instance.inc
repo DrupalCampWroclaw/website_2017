@@ -302,7 +302,7 @@ function userprofile_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_user_town',
-    'label' => 'Town',
+    'label' => 'Location (City)',
     'required' => 1,
     'settings' => array(
       'entity_translation_sync' => FALSE,
@@ -357,11 +357,11 @@ function userprofile_field_default_field_instances() {
   t('First name');
   t('Job title');
   t('Last name');
+  t('Location (City)');
   t('Name');
   t('Organization');
   t('Planned attendance');
   t('T-shirt size');
-  t('Town');
   t('User category');
 
   return $field_instances;

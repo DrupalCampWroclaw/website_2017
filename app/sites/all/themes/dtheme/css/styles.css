@@ -943,6 +943,45 @@ table {
     display: none;
   }
 }
+/* line 2, ../sass/components/_buttons.scss */
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: 0.2s;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* line 13, ../sass/components/_buttons.scss */
+.btn-white {
+  background: #f9f5e1;
+  color: #0b5876;
+}
+/* line 16, ../sass/components/_buttons.scss */
+.btn-white:hover {
+  background: #042430;
+}
+/* line 20, ../sass/components/_buttons.scss */
+.btn-blue {
+  background: #006796;
+  color: #f9f5e1;
+}
+/* line 23, ../sass/components/_buttons.scss */
+.btn-blue:hover {
+  background: #ece0a1;
+}
+/* line 27, ../sass/components/_buttons.scss */
+.btn-red, #block-layout-promo-block.block a.btn {
+  background: #e84e39;
+  color: #f9f5e1;
+}
+/* line 30, ../sass/components/_buttons.scss */
+.btn-red:hover, #block-layout-promo-block.block a.btn:hover {
+  background: #be2a16;
+}
+
 /**
  * This file should be removed.
  * Move code to separate files.
@@ -2194,7 +2233,7 @@ tr.selected td {
 /* line 803, ../sass/components/_misc.scss */
 .progress .filled {
   background-color: #0072b9;
-  background-image: url('../images/progress.gif?1486467609');
+  background-image: url('../images/progress.gif?1490775490');
 }
 
 /* line 809, ../sass/components/_misc.scss */
@@ -2419,6 +2458,18 @@ table tr:hover td {
     color: #ffffff;
     cursor: pointer;
   }
+}
+
+/* line 1, ../sass/components/blocks/_block-layout-promo-block.scss */
+#block-layout-promo-block.block {
+  background: #0b5876;
+  color: #ffffff;
+  border-radius: 5px;
+}
+/* line 6, ../sass/components/blocks/_block-layout-promo-block.scss */
+#block-layout-promo-block.block h2.block-title {
+  background: none;
+  color: #ffffff;
 }
 
 /* line 2, ../sass/components/blocks/_block-session-session-accepted-sessions.scss */
@@ -3240,7 +3291,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 /* line 10, ../sass/components/regions/_sidebar-second.scss */
 .region-sidebar-second .block-layout a {
-  color: #b0b0b0 !important;
+  color: #b0b0b0;
 }
 
 /* line 3, ../sass/components/views/_news_home_page.scss */
@@ -3312,7 +3363,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: #eb4e3a;
   text-align: right;
 }
-/* line 38, ../../../../../../../../../../../../var/lib/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, ../../../../../../../../../../../usr/share/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .view-news-frontpage .views-row .node-news.node-teaser ul.links:after {
   content: "";
   display: table;
