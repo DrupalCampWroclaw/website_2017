@@ -54,6 +54,18 @@ function application_settings_variables() {
     '#title' => t('frontpage- top text'),
   );
 
+  $variables['global']['pormo_title_block'] = array(
+    '#type' => 'textfield',
+    '#title' => t('global - promo title block'),
+  );
+
+  $variables['global']['pormo_block'] = array(
+    '#type' => 'textarea',
+    '#title' => t('global - promo block'),
+  );
+
+
+
   return $variables;
 }
 
