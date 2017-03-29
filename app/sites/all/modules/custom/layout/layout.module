@@ -113,7 +113,7 @@ function layout_block_view($delta = '') {
       break;
 
     case 'promo_block':
-      $block['subject'] = t('Drupal Camp');
+      $block['subject'] = variable_get_lang('appset_pormo_title_block');
       $block['content'] = layout_block_promo_block();
       break;
   }
