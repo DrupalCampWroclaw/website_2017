@@ -180,15 +180,11 @@ $max-page-width: $width-page;
 
     @media all and (min-width: 960px) {
       #social-media-twitter {
-        width: 33.3%;
-        float: left;
-      }
-      #social-media-gplus {
-        width: 33.3%;
+        width: 50%;
         float: left;
       }
       #social-media-fb {
-        width: 33.3%;
+        width: 50%;
         float: left;
       }
 
