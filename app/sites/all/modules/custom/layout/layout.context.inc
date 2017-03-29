@@ -30,7 +30,7 @@ function layout_context_default_contexts() {
           'module' => 'layout',
           'delta' => 'frontpage_top',
           'region' => 'content_top',
-          'weight' => '-10',
+          'weight' => '-23',
         ),
         'views-sponsors_frontpage_block-block' => array(
           'module' => 'views',
@@ -62,11 +62,11 @@ function layout_context_default_contexts() {
           'region' => 'footer',
           'weight' => '-6',
         ),
-        'flickr-flickr' => array(
-          'module' => 'flickr',
-          'delta' => 'flickr',
+        'instagram_block-instagram_block' => array(
+          'module' => 'instagram_block',
+          'delta' => 'instagram_block',
           'region' => 'footer',
-          'weight' => '-4',
+          'weight' => '-5',
         ),
       ),
     ),
