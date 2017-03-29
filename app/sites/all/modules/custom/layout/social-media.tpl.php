@@ -6,7 +6,7 @@
   </div>
 
   <div id="social-media-fb" class="social-media">
-    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fdrupalcampwroclawpl&amp;width=9000&amp;height=360&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=476413902469619" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; height:370px; width: 100%;" allowTransparency="true"></iframe>
+    <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fdrupalcampwroclawpl&amp;height=360&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=true&amp;show_border=true&amp;appId=476413902469619" scrolling="yes" frameborder="0" style="border:none; overflow:hidden; height:370px; width: 100%;" allowTransparency="true"></iframe>
   </div>
 
 </div>
