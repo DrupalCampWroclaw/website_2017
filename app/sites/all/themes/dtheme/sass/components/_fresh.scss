@@ -180,7 +180,6 @@ $max-page-width: $width-page;
       text-align: center;
       overflow: hidden;
 
-
       iframe {
         max-width: 500px;
       }
@@ -190,17 +189,13 @@ $max-page-width: $width-page;
       #social-media-twitter {
         width: 50%;
         float: left;
-
-
       }
       #social-media-fb {
         width: 50%;
         float: left;
       }
-
     }
   }
-
 }
 
 #block-layout-flickr-gallery {
