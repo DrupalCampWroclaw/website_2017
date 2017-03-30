@@ -55,7 +55,6 @@ function layout_block_info() {
  */
 function layout_block_view($delta = '') {
   // This example is adapted from node.module.
-  global $user;
   $block = array();
 
   switch ($delta) {
