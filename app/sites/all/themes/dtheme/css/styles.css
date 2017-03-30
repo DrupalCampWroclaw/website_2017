@@ -2378,32 +2378,30 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #footer #page-bottom-links ul li a:hover {
   text-decoration: underline;
 }
-#footer #page-bottom-links:after {
+#footer #page-bottom-links:after, #footer #page-bottom-links:before {
   width: 0;
   height: 0;
-  border-color: transparent #e1e0d7 transparent transparent;
+  top: 0;
   content: "";
   position: absolute;
-  top: 0;
+}
+#footer #page-bottom-links:after {
+  border-color: transparent #e1e0d7 transparent transparent;
   right: 0;
 }
 #footer #page-bottom-links:before {
-  width: 0;
-  height: 0;
   border-color: transparent transparent transparent #e1e0d7;
-  content: "";
-  position: absolute;
-  top: 0;
   left: 0;
 }
 @media all and (min-width: 960px) {
+  #footer #page-bottom-links:after, #footer #page-bottom-links:before {
+    border-style: solid;
+  }
   #footer #page-bottom-links:after {
     border-width: 56px 17px 56px 0;
-    border-style: solid;
   }
   #footer #page-bottom-links:before {
     border-width: 56px 0 56px 17px;
-    border-style: solid;
   }
 }
 
