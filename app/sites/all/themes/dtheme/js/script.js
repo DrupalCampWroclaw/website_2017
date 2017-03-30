@@ -13,7 +13,7 @@
 (function ($, Drupal, window, document, undefined) {
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
-  Drupal.behaviors.my_custom_behavior = {
+  Drupal.behaviors.mobile_menu = {
     attach: function (context, settings) {
       // Place your code here.
       $('#mobile-menu-links li.expanded').prepend('<div class="menu-item-expand-link"><span>+</span></div>');
@@ -30,9 +30,7 @@
   Drupal.behaviors.fb_resizer = {
     attach: function (context, settings) {
       fb_iframe_resize();
-      $(window).on('resize', function () {
-        fb_iframe_resize();
-      });
+      $(window).on('resize', fb_iframe_resize);
 
       /**
        * Resize facebook iframe.
