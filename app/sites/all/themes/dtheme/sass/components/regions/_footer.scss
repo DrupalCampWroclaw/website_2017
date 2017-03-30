@@ -33,8 +33,6 @@
     &:after {
       width: 0;
       height: 0;
-      border-style: solid;
-      border-width: 37.5px 17px 37.5px 0;
       border-color: transparent $color11 transparent transparent;
       content: "";
       position: absolute;
@@ -44,13 +42,21 @@
     &:before {
       width: 0;
       height: 0;
-      border-style: solid;
-      border-width: 37.5px 0 37.5px 17px;
       border-color: transparent transparent transparent $color11;
       content: "";
       position: absolute;
       top: 0;
       left: 0;
+    }
+    @media all and (min-width: 960px) {
+      &:after {
+        border-width: 56px 17px 56px 0;
+        border-style: solid;
+      }
+      &:before {
+        border-width: 56px 0 56px 17px;
+        border-style: solid;
+      }
     }
   }
 }
