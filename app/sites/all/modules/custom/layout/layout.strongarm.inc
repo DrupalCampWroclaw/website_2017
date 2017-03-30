@@ -44,12 +44,12 @@ function layout_strongarm() {
   $strongarm->name = 'instagram_block_user_block_settings';
   $strongarm->value = array(
     'count' => '6',
-    'width' => '175',
+    'width' => '190',
     'height' => '175',
     'img_resolution' => 'thumbnail',
     'module' => 'instagram_block',
     'delta' => 'instagram_block',
-    'title' => 'Galeria Instagram - dodaj swoje zdjęcia z konferencji!',
+    'title' => 'Instagram',
     'regions' => array(
       'dtheme' => -1,
       'seven' => -1,
@@ -77,8 +77,8 @@ function layout_strongarm() {
     ),
     'visibility__active_tab' => 'edit-path',
     'submit' => 'Zachowaj',
-    'form_build_id' => 'form-AmXy_sho8fUTOHc5C_XAEKRTNBTA7RlErYEJX6oVBOM',
-    'form_token' => 'sNjG8F9N7DHT09Tt-uudkYu5_-DLe-0E-VwXJ-mtUi0',
+    'form_build_id' => 'form-uCF_Mjt6dLs-znSzO8NFJgA2tw7IulvsyFZNp6JEDwc',
+    'form_token' => '4IkcNQodD-v7w60fWy7UUH8YgQ1LjwNUvFuDsIIdD0Q',
     'form_id' => 'block_admin_configure',
     'op' => 'Zachowaj',
   );
