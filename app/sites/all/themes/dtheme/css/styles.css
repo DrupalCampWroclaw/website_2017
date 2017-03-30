@@ -1036,10 +1036,17 @@ table {
   text-align: center;
 }
 
+#block-layout-social-facebook-gplus-twitter #social-media-widgets .twitter-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
 #block-layout-social-facebook-gplus-twitter #social-media-widgets .social-media {
   padding-top: 1em;
   text-align: center;
   overflow: hidden;
+}
+#block-layout-social-facebook-gplus-twitter #social-media-widgets .social-media iframe {
+  max-width: 500px;
 }
 @media all and (min-width: 960px) {
   #block-layout-social-facebook-gplus-twitter #social-media-widgets #social-media-twitter {
@@ -1971,7 +1978,7 @@ tr.selected td {
 }
 .progress .filled {
   background-color: #0072b9;
-  background-image: url('../images/progress.gif?1490775490');
+  background-image: url('../images/progress.gif?1486467609');
 }
 
 iframe, object, embed {
