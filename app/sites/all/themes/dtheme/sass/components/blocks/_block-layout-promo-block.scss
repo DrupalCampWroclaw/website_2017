@@ -1,0 +1,13 @@
+#block-layout-promo-block.block {
+  background: $color9;
+  color: $color_white;
+  border-radius: 5px;
+
+  h2.block-title {
+    background: none;
+    color: $color_white;
+  }
+  a.btn {
+    @extend .btn-red;
+  }
+}
