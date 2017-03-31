@@ -624,7 +624,7 @@ function application_update_7048() {
 <li>Bardzo duża dawka specjalistycznej wiedzy.</li>
 </ul>
 <p class='rtecenter'><strong>Wstęp bezpłatny</strong></p>
-<p class='rtecenter'><a class='btn' href='/rejestracja/'>Zarejestruj sie już dziś!</a></p>");
+<p class='rtecenter'><a class='btn' href='/rejestracja/'>Zarejestruj się już dziś!</a></p>");
 
   variable_set('appset_pormo_block_en', "<ul>
 <li>Lectures conducted by specialists.</li>

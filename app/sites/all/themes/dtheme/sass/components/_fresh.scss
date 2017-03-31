@@ -171,30 +171,31 @@ $max-page-width: $width-page;
 #block-layout-social-facebook-gplus-twitter {
 
   #social-media-widgets {
-
+    .twitter-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
     .social-media {
       padding-top: 1em;
       text-align: center;
       overflow: hidden;
+
+      iframe {
+        max-width: 500px;
+      }
     }
 
     @media all and (min-width: 960px) {
       #social-media-twitter {
-        width: 33.3%;
-        float: left;
-      }
-      #social-media-gplus {
-        width: 33.3%;
+        width: 50%;
         float: left;
       }
       #social-media-fb {
-        width: 33.3%;
+        width: 50%;
         float: left;
       }
-
     }
   }
-
 }
 
 #block-layout-flickr-gallery {
