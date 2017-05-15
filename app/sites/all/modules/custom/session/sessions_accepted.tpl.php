@@ -21,7 +21,7 @@ foreach ($data as $day => $rooms) {
   static $test;
   $param1 = 1.4;
   $param_time_to_pixel = 50;
-  $param_top_minus_10hours = 36000;
+  $param_top_minus_10hours = 32400;
 
   foreach ($rooms as $room_nid => $sessions) {
     // Calculate max height.

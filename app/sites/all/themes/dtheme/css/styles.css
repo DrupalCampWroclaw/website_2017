@@ -1978,7 +1978,7 @@ tr.selected td {
 }
 .progress .filled {
   background-color: #0072b9;
-  background-image: url('../images/progress.gif?1486467609');
+  background-image: url('../images/progress.gif?1494866483');
 }
 
 iframe, object, embed {
@@ -2198,6 +2198,8 @@ table tr:hover td {
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room .sessions-accepted-session {
   overflow: hidden;
+  position: absolute;
+  width: 100%;
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room .sessions-accepted-session > .inner {
   height: 100%;
