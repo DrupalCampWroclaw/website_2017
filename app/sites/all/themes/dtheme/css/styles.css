@@ -2182,7 +2182,6 @@ table tr:hover td {
   text-align: center;
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room {
-  display: inline-block;
   vertical-align: top;
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room > .inner {
@@ -2199,8 +2198,6 @@ table tr:hover td {
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room .sessions-accepted-session {
   overflow: hidden;
-  position: absolute;
-  width: 100%;
 }
 .sessions-accepted.sessions-accepted-day .sessions-accepted-room .sessions-accepted-session > .inner {
   height: 100%;
