@@ -3,7 +3,6 @@
     text-align: center;
   }
   .sessions-accepted-room{
-    display: inline-block;
     vertical-align: top;
 
 
@@ -25,8 +24,6 @@
 
     .sessions-accepted-session{
       overflow: hidden;
-      position: absolute;
-      width: 100%;
       > .inner {
         height: 100%;
         background: $color_white;
