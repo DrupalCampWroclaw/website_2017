@@ -16,7 +16,7 @@
       color: $color_white;
       text-align: center;
     }
-    
+
     .sessions-list{
       position: relative;
 
@@ -24,6 +24,8 @@
 
     .sessions-accepted-session{
       overflow: hidden;
+      position: absolute;
+      width: 100%;
       > .inner {
         height: 100%;
         background: $color_white;
