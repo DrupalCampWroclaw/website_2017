@@ -37,11 +37,13 @@
        */
       function fb_iframe_resize() {
         let fb_iframe = $('#social-media-fb iframe');
-        let $iframe_widht = fb_iframe['0'].clientWidth;
-        let $url = fb_iframe['0'].src;
-        let decodedUrl = decodeURIComponent($url);
-        decodedUrl += '&width=' + $iframe_widht;
-        fb_iframe['0'].src = decodedUrl;
+        if (fb_iframe.length == 1) {
+          let $iframe_widht = fb_iframe['0'].clientWidth;
+          let $url = fb_iframe['0'].src;
+          let decodedUrl = decodeURIComponent($url);
+          decodedUrl += '&width=' + $iframe_widht;
+          fb_iframe['0'].src = decodedUrl;
+        }
       }
     }
   };
