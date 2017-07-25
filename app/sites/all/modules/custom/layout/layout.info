@@ -1,7 +1,7 @@
 name = Layout
 core = 7.x
 package = APP
-version = 7.x-1.0-beta16
+version = 7.x-1.0-beta17
 project = layout
 dependencies[] = bean_admin_ui
 dependencies[] = block
